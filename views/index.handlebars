@@ -9,12 +9,27 @@
   <button type="submit">Submit</button>
 </form>
 
+
+<div>Burgers to devour</div>
 <ul>
   {{#each burgers}}
+  {{#unless devoured}}
   <li>
     {{burger_name}}
     <button class="devour" data-id="{{this.id}}">Devour</button>
   </li>
+  {{/unless}}
   {{/each}}
 </ul>
 
+<div>Devoured burgers</div>
+<ul>
+  {{#each burgers}}
+  {{#if devoured}}
+  <li>
+    {{burger_name}}
+    <button class="delete" data-id="{{this.id}}">Delete</button>
+  </li>
+  {{/if}}
+  {{/each}}
+</ul>
