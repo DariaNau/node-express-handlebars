@@ -1,0 +1,20 @@
+<h2>Eat-Da-Burger!</h2>
+<form class="create-form">
+
+  <div class="form-group">
+    <label for="burger">Enter a burger you'd like to eat and click the "submit" button</label>
+    <input type="text" id="burger" name="name">
+  </div>
+
+  <button type="submit">Submit</button>
+</form>
+
+<ul>
+  {{#each burgers}}
+  <li>
+    {{burger_name}}
+    <button class="devour" data-id="{{this.id}}">Devour</button>
+  </li>
+  {{/each}}
+</ul>
+
