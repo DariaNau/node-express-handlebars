@@ -11,7 +11,7 @@ if (process.env.JAWSDB_URL) {
     password: "gt2020",
     database: "burger_db"
   });
-}
+};
 
 // Make connection.
 connection.connect(err => {
