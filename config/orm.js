@@ -36,19 +36,19 @@ let orm = {
       cb(result);
     });
   },
-  delete: function(table, condition, cb) {
-    let queryString = "DELETE FROM " + table;
-    queryString += " WHERE ";
-    queryString += condition;
+  // delete: function(table, condition, cb) {
+  //   let queryString = "DELETE FROM " + table;
+  //   queryString += " WHERE ";
+  //   queryString += condition;
 
-    connection.query(queryString, (err, result) => {
-      if (err) {
-        throw err;
-      }
+  //   connection.query(queryString, (err, result) => {
+  //     if (err) {
+  //       throw err;
+  //     }
 
-      cb(result);
-    });
-  }
+  //     cb(result);
+  //   });
+  // }
 };
 
 module.exports = orm;
