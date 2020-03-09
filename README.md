@@ -15,7 +15,7 @@ Please visit the deployed project at: https://frozen-brushlands-88386.herokuapp.
 
 ### Illustrations
 
-![Image of the App](/assets/img/hamburger-go.gif)
+![Image of the App](public\assets\img\burger-app.png)
 
 
 ## License
