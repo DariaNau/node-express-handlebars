@@ -78,53 +78,59 @@ ADD LOADER!!! --}}
     </svg>
   </div>
 
+
+
   <div class="hero__content">
-    <div class="container-fluid m-3">
-      <div class="row text-center">
-        {{!-- <h2>Eat-Da-Burger!</h2> --}}
-        <div class="col">
-          <form class="create-form">
-            <div class="form-group">
-              <label for="burger"></label>
-              <input type="text" id="burger" name="name" placeholder="Add your burger">
-              <button type="submit">Submit</button>
+    <div class="container-fluid m-0 p-0">
+      <div class="row m-5">
+        {{!-- <h1>Burger Dream</h1> --}}
+        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+          <form class="create-form form-inline d-flex justify-content-center">
+            <div class="form-group mx-sm-3 mb-2">
+              <input type="text" class="form-control" id="burger" placeholder="Add your burger">
             </div>
+            <button type="submit" class="btn btn-secondary mb-2">Yum!</button>
           </form>
         </div>
       </div>
 
-    <div class="row mx-md-n5">
-      <div class="col px-md-5">
-        <div class="p-3 border bg-light">
-          <div>Burgers to devour - fresh and ready fo you</div>
-          <ul>
-            {{#each burgers}}
-            {{#unless devoured}}
-            <li>
-              {{burger_name}}
-              <button class="devour" data-id="{{this.id}}">Devour</button>
-            </li>
-            {{/unless}}
-            {{/each}}
-          </ul>
+      <div class="row pt-3 mb-3">
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 px-md-5 mb-1">
+          <div class="p-3 border bg-light">
+            <h1>Burgers to devour</h1>
+            <p>Fresh and ready for you!</p>
+            <ul>
+              {{#each burgers}}
+              {{#unless devoured}}
+              <li>
+                {{burger_name}}
+                <button class="devour btn btn-secondary mb-2" data-id="{{this.id}}">Devour</button>
+              </li>
+              {{/unless}}
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 px-md-5 mb-1">
+          <img src="/assets/img/hamburger-go.gif" class="img-fluid" alt="Responsive image">
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4 px-md-5 mb-1">
+          <div class="p-3 border bg-light">
+            <h1>Devoured burgers</h1>
+            <p>Hide them and no one will ever know!<p>
+                <ul>
+                  {{#each burgers}}
+                  {{#if devoured}}
+                  <li>
+                    {{burger_name}}
+                    <button class="delete btn btn-secondary mb-2" data-id="{{this.id}}">Hide</button>
+                  </li>
+                  {{/if}}
+                  {{/each}}
+                </ul>
+          </div>
         </div>
       </div>
-      <img src="/assets/img/hamburger-go.gif" class="img-fluid" alt="Responsive image">
-      <div class="col px-md-5">
-        <div class="p-3 border bg-light">
-          <div>Devoured burgers - hide them and none will ever know!</div>
-          <ul>
-            {{#each burgers}}
-            {{#if devoured}}
-            <li>
-              {{burger_name}}
-              <button class="delete" data-id="{{this.id}}">Hide</button>
-            </li>
-            {{/if}}
-            {{/each}}
-          </ul>
-        </div>
-      </div>
-     </div>
     </div>
   </div>
+</div>
