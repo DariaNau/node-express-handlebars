@@ -78,16 +78,14 @@ ADD LOADER!!! --}}
     </svg>
   </div>
 
-
-
   <div class="hero__content">
     <div class="container-fluid m-0 p-0">
       <div class="row m-5">
         {{!-- <h1>Burger Dream</h1> --}}
         <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
-          <form class="create-form form-inline d-flex justify-content-center">
+          <form action="/api/burgers" method="POST" class="create-form form-inline d-flex justify-content-center">
             <div class="form-group mx-sm-3 mb-2">
-              <input type="text" class="form-control" id="burger" placeholder="Add your burger">
+              <input type="text" class="form-control" name="burger" id="burger" placeholder="Add your burger">
             </div>
             <button type="submit" class="btn btn-secondary mb-2">Yum!</button>
           </form>
@@ -104,7 +102,11 @@ ADD LOADER!!! --}}
               {{#unless devoured}}
               <li>
                 {{burger_name}}
-                <button class="devour btn btn-secondary mb-2" data-id="{{this.id}}">Devour</button>
+                {{!-- <button class="devour btn btn-secondary mb-2" data-id="{{this.id}}">Devour</button> --}}
+                <form action="/api/burgers/update/{{this.id}}" method="get">
+                  <input type="submit" value="Devour" class="btn btn-default">
+                </form>
+
               </li>
               {{/unless}}
               {{/each}}

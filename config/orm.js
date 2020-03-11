@@ -20,7 +20,7 @@ let orm = {
   },
 
   insertOne: function (table, cols, vals, cb) {
-    const queryString = "INSERT INTO ?? (" + cols.toString() + ") VALUES (" + printQs(vals) + ");"
+    const queryString = "INSERT INTO ?? (" + cols + ") VALUES (" + printQs(vals) + ");"
     console.log(queryString);
     connection.query(queryString, [table].concat(vals), cb)
   },
@@ -36,19 +36,16 @@ let orm = {
       cb(result);
     });
   },
-  // delete: function(table, condition, cb) {
-  //   let queryString = "DELETE FROM " + table;
-  //   queryString += " WHERE ";
-  //   queryString += condition;
 
-  //   connection.query(queryString, (err, result) => {
-  //     if (err) {
-  //       throw err;
-  //     }
-
-  //     cb(result);
-  //   });
-  // }
+  deleteOne: function(table, condition, cb) {
+    let queryString = "DELETE FROM " + table + " WHERE id = " + condition;
+    connection.query(queryString, (err, result) => {
+      if (err) {
+        throw err;
+      }
+      cb(result);
+    });
+  }
 };
 
 module.exports = orm;

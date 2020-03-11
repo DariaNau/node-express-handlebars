@@ -22,14 +22,34 @@ router.post("/api/burgers", (req, res) => {
   burger.create("burger_name", [req.body.burger], function (result) {
     //res.json(result)?
     res.redirect('/');
+    // res.sendStatus(200)
   })
+});
+
+router.get("/api/burgers/update/:id", (req, res) => {
+  let condition = req.params.id;
+  console.log("condition", condition);
+  burger.update({
+      //we can pass true statement here to update the urger which current devoured state is false
+      devoured: true
+    },
+    condition,
+    function (result) {
+      if (result.changedRows === 0) {
+        console.log("No rows changed")
+        // If no rows were changed, then the ID must not exist, so 404
+        return res.status(404).end();
+      }
+      res.redirect("/")
+    }
+  );
 });
 
 router.put("/api/burgers/:id", (req, res) => {
   let condition = req.params.id;
   console.log("condition", condition);
   burger.update({
-    //we can pass true statement here to update the urger which current devoured state is false
+      //we can pass true statement here to update the urger which current devoured state is false
       devoured: true
     },
     condition,
@@ -38,9 +58,22 @@ router.put("/api/burgers/:id", (req, res) => {
         // If no rows were changed, then the ID must not exist, so 404
         return res.status(404).end();
       }
-      res.status(200).end();
+      res.status(200).end();;
     }
   );
+});
+
+router.delete("/api/burgers/:id", (req, res) => {
+  let condition = req.params.id;
+
+  burger.delete(condition, function (result) {
+    if (result.affectedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+  });
 });
 
 
