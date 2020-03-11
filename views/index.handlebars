@@ -102,11 +102,10 @@ ADD LOADER!!! --}}
               {{#unless devoured}}
               <li>
                 {{burger_name}}
-                {{!-- <button class="devour btn btn-secondary mb-2" data-id="{{this.id}}">Devour</button> --}}
+                <button class="devour btn btn-secondary mb-2" data-id="{{this.id}}">Devour</button>
                 <form action="/api/burgers/update/{{this.id}}" method="get">
-                  <input type="submit" value="Devour" class="btn btn-default">
+                  {{!-- <input type="submit" value="Devour" class="btn btn-default"> --}}
                 </form>
-
               </li>
               {{/unless}}
               {{/each}}

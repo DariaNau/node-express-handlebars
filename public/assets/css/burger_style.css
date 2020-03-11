@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Corben:700');
 
-
 h1 {
-  text-align: center;
+	text-align: center;
 	font-family: 'Corben', cursive;
 	font-size: 24px;
 	color: rgb(226, 221, 80);
@@ -11,8 +10,20 @@ h1 {
 }
 
 p {
-  text-align: center;
-  font-size: 14px;
+	text-align: center;
+	font-size: 14px;
+}
+
+li{
+	list-style: none;
+}
+
+img:hover {
+	transform: rotate(360deg) scale(1.2);
+	transition: .5s all;
+	/* background-color: rgb(223, 243, 242); */
+	font-weight: 800;
+
 }
 
 .hero {
@@ -54,9 +65,9 @@ p {
 }
 
 @keyframes fall {
-	
+
 	100% {
 		transform: translateY(0);
 	}
-	
+
 }
